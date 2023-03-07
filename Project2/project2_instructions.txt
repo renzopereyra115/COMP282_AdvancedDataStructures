@@ -1,0 +1,57 @@
+Spring 2023
+COMP 282 - Project 2 Instructions
+DUE: March 14, 2023 (TUESDAY)
+---------------------
+Trace the operation of an AVL Tree given the following operations: 
+---------------------
+insert(93)
+insert(59) 
+insert(27) 
+insert(12) 
+insert(99) 
+insert(40) 
+insert(68) 
+insert(36) 
+insert(43) 
+insert(76) 
+insert(35) 
+insert(26) 
+insert(50) 
+insert(24) 
+insert(64)
+---------------------
+Next, Delete the following items sequentially. 
+---------------------
+delete(68)
+delete(59)
+delete(26) 
+delete(50) 
+delete(64) 
+delete(93)
+---------------------
+Starting with an empty tree, perform the following insertion operations:
+ ---------------------
+insert(58) 
+insert(70) 
+insert(46) 
+insert(48) 
+insert(96) 
+insert(98) 
+insert(22) 
+insert(24) 
+insert(10) 
+insert(63) 
+insert(68) 
+insert(94) 
+insert(44) 
+insert(87) 
+insert(84)
+---------------------
+And then do the following deletions:
+---------------------
+delete(96) 
+delete(68) 
+delete(44) 
+delete(87) 
+delete(84) 
+delete(22)
