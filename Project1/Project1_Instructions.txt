@@ -1,0 +1,92 @@
+To:	Spring 2023, COMP282 students
+
+From:
+Shantaram Vasikarla 
+
+Subject:
+Project 1 Specifications. 
+
+Date:
+Friday, Feb 10, 2023
+
+Due:
+Friday, Feb 24, 2023
+
+
+---------------------
+#1) Task
+---------------------
+Trace the operation of a 2-3-4 Tree 
+(The instructor’s correct way) 
+given the following operations:
+
+insert(47)
+insert(43) 
+insert(23) 
+insert(90) 
+insert(95) 
+insert(27) 
+insert(67) 
+insert(80) 
+insert(88) 
+insert(29) 
+insert(59) 
+insert(24) 
+insert(69) 
+insert(44) 
+insert(71) 
+insert(61) 
+insert(99) 
+insert(42) 
+insert(38)
+---------------------
+Next, Delete the following items sequentially. 
+
+delete(27)
+delete(38)
+delete(44) 
+delete(95) 
+delete(88) 
+delete(59)
+---------------------
+Starting with an empty tree, perform the following insertion operations:
+
+insert(17) 
+insert(15) 
+insert(49) 
+insert(34) 
+insert(76) 
+insert(59) 
+insert(97) 
+insert(69) 
+insert(46) 
+insert(86) 
+insert(20) 
+insert(99) 
+insert(22) 
+insert(52) 
+insert(89) 
+insert(57) 
+insert(10) 
+insert(41) 
+insert(75) 
+insert(37)
+---------------------
+And then do the following deletions:
+
+delete(99) 
+delete(22) 
+delete(69) 
+delete(15) 
+delete(10) 
+delete(75)
+---------------------
+
+
+---------------------
+#2) Deliverables
+---------------------
+1.	Your paperwork sheets showing work sufficient to show what you were doing.
+
+2.	Java/C++ Program (source code) file, and an output file of a tree drawn with nodes and values.
+---------------------
