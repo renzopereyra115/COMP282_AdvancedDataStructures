@@ -19,7 +19,7 @@ class Node
 	{
 		leftChild = null;
 		rightChild = null;
-		this.element = element; //???
+		this.element = element;
 		h = 0;
 	}
 }

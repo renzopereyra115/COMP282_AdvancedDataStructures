@@ -17,23 +17,16 @@ class buildTree
 		rootNode = null;
 	}
 
-	//method, checks whether AVL Tree is empty or not
-	public boolean isEmpty()
-	{
-		if (rootNode == null)
-		{
-			return true;
-		}
-		else 
-		{
-			return false;
-		}
-	}
-
 	//method, inserts an element to AVL Tree
 	public void insertElement(int element)
 	{
 		rootNode = insertElement(element, rootNode);
+	}
+
+	//method, removes an element from AVL Tree
+	public void deleteElement(int element)
+	{
+		rootNode = deleteElement(element, rootNode);
 	}
 
 	//method, gets height of AVL Tree
@@ -90,13 +83,103 @@ class buildTree
 				}
 			}
 		}
-		else
+		//get Tree's height
+		node.h = getMaxHeight(getHeight(node.leftChild),getHeight(node.rightChild))+1;
+		return node;
+	}
+
+
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	int getBalance(Node node)
+	{
+		if(node == null)
+		return 0;
+		return getHeight(node.leftChild) - getHeight(node.rightChild);
+	}
+
+	Node minValueNode(Node node)
+	{
+		Node temp;
+		for (temp = node; temp.leftChild != null;)
+			return temp;
+			temp = temp.leftChild;
+		return temp = temp.leftChild;
+	}
+
+	private Node deleteElement(int element, Node node)
+	{
+		if (node == null)
+		return node; //item not found in tree
+
+
+		else if (element < node.element)
 		{
-			//if element already in tree, do nothing
-			node.h = getMaxHeight(getHeight(node.leftChild),getHeight(node.rightChild))+1;
+			node.leftChild = deleteElement(element, node.leftChild);
+		}
+		else if (element > node.element)
+		{
+			node.rightChild = deleteElement(element, node.rightChild);
+		}
+		else 
+		{
+			if ((node.leftChild == null) || (node.rightChild == null))
+			{
+				Node temp = null;
+				if (temp == node.leftChild)
+				{
+					temp = node.rightChild;
+				}
+				else 
+				{
+					temp = node.leftChild;
+				}
+
+				if (temp == null)
+				{
+					temp = node;
+					node = null;
+				}
+				else
+				{
+					node = temp;
+				}
+			}
+			else
+			{
+				Node temp = minValueNode(node.rightChild);
+				node.element = temp.element;
+				node.rightChild = deleteElement(temp.element, node.rightChild);
+			}
+		}
+		if (node == null)
+		return node;
+
+		node.h = Math.max(getHeight(node.leftChild), getHeight(node.rightChild)+1);
+		int balance = getBalance(node);
+
+		if(balance > 1 && getBalance(node.leftChild) >= 0)
+		{
+			return rotateWithRightChild(node);
+		}
+		if(balance > 1 && getBalance(node.leftChild) < 0)
+		{
+			node.leftChild = rotateWithLeftChild(node);
+			return rotateWithRightChild(node);
+		}
+
+		if (balance < -1 && getBalance(node.rightChild) <= 0)
+		{
+			return rotateWithLeftChild(node);
+		}
+		if (balance < -1 && getBalance(node.rightChild) > 0)
+		{
+			node.rightChild = rotateWithLeftChild(node.rightChild);
+			return rotateWithLeftChild(node);
 		}
 		return node;
 	}
+	///////////////////////////////////////////////////////////////////////////////////////////////
 
 	//method, perform rotation of binary tree node w/ left child
 	private Node rotateWithLeftChild(Node node2)
@@ -136,25 +219,7 @@ class buildTree
 		return rotateWithRightChild(node1);
 	}
 
-	//method, gets total # of nodes in AVL Tree
-	public int getTotalNumberOfNodes()
-	{
-		return getTotalNumberOfNodes(rootNode);
-	}
-	private int getTotalNumberOfNodes(Node head)
-	{
-		if (head == null)
-		{
-			return 0;
-		}
-		else
-		{
-			int length = 1;
-			length = length + getTotalNumberOfNodes(head.leftChild);
-			length = length + getTotalNumberOfNodes(head.rightChild);
-			return length;
-		}
-	}
+
 
 	//method, finds an element in AVL Tree
 	public boolean searchElement(int element)
@@ -184,6 +249,9 @@ class buildTree
 		}
 		return check;
 	}
+
+
+
 
 	//method, traverses through AVL Tree in "in-order" form
 	public void inorderTraversal()
@@ -230,3 +298,4 @@ class buildTree
 		}
 	}
 }
+//DONE!
